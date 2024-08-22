@@ -12,4 +12,5 @@
     "terminal.integrated.mouseWheelZoom": true,
     "terminal.integrated.fontFamily": " 'BIZ UDゴシック', monospace",
     "editor.fontLigatures":false,
+    "emmet.variables": {"lang": "ja"},
   }
