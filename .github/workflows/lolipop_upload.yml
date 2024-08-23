@@ -1,21 +1,18 @@
-name: lolipop
-
+name: FTP Deploy
 on:
   push:
     branches:
       - master
-
 jobs:
-  deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Deploy via FTP     # JOBの名前
-        uses: SamKirkland/FTP-Deploy-Action@3.0.0      # 仮想環境の種類を指定
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          git-ftp-args: --remote-root FE2024L/001/
-          local-dir: public
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
